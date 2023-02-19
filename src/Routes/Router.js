@@ -1,3 +1,5 @@
+import Wishlist from '../Pages/Wishlist';
+
 const { createBrowserRouter } = require('react-router-dom');
 const { default: Main } = require('../Layout/Main');
 const { default: About } = require('../Pages/About');
@@ -17,6 +19,7 @@ const routes = createBrowserRouter([
 			{ path: 'about', element: <About /> },
 			{ path: 'top-rated', element: <TopRated /> },
 			{ path: 'cart', element: <Cart /> },
+			{ path: 'wishlist', element: <Wishlist /> },
 		],
 	},
 ]);

@@ -2,12 +2,12 @@ import React from 'react';
 import ProductCard from '../Components/ProductCard';
 import { useProducts } from '../Context/ProductProvider';
 
-const Cart = () => {
+const Wishlist = () => {
 	const {
-		productsState: { cart, loading, error },
+		productsState: { loading, wishlist, error },
 	} = useProducts();
-
 	let content;
+
 	if (loading) {
 		content = (
 			<p className="text-green-500 font-medium text-xl">Loading...</p>
@@ -22,7 +22,7 @@ const Cart = () => {
 		);
 	}
 
-	if (!loading && !error && !cart?.length) {
+	if (!loading && !error && !wishlist?.length) {
 		content = (
 			<p className="text-emerald-500 font-medium text-xl">
 				Nothing to show. The product List is empty.
@@ -30,12 +30,11 @@ const Cart = () => {
 		);
 	}
 
-	if (!loading && !error && cart?.length) {
-		content = cart.map((product) => (
+	if (!loading && !error && wishlist?.length) {
+		content = wishlist.map((product) => (
 			<ProductCard key={product.model} product={product} />
 		));
 	}
-
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl gap-14 mx-auto my-10">
 			{content}
@@ -43,4 +42,4 @@ const Cart = () => {
 	);
 };
 
-export default Cart;
+export default Wishlist;
